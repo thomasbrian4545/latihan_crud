@@ -37,6 +37,8 @@ class MahasiswaController extends Controller
 
     public function show($mahasiswa)
     {
-        dd($mahasiswa);
+        // dd($mahasiswa);
+        $result = Mahasiswa::findOrFail($mahasiswa);
+        return view('mahasiswa.show', ['mahasiswa' => $result]);
     }
 }
