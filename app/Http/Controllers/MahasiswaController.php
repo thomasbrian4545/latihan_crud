@@ -40,5 +40,6 @@ class MahasiswaController extends Controller
         // dd($mahasiswa);
         $result = Mahasiswa::findOrFail($mahasiswa);
         return view('mahasiswa.show', ['mahasiswa' => $result]);
+    // public function show($mahasiswa)
     }
 }
