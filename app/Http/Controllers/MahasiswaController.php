@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
@@ -27,6 +28,8 @@ class MahasiswaController extends Controller
                 'alamat' => '',
             ]
         );
-        dump($validateData);
+        // dump($validateData);
+        Mahasiswa::create($validateData);
+        return "Data berhasil diinput ke database";
     }
 }
