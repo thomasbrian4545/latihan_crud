@@ -9,7 +9,9 @@ class MahasiswaController extends Controller
 {
     public function index()
     {
-        return "Tabel mahasiswa ada disini";
+        // return "Tabel mahasiswa ada disini";
+        $mahasiswas = Mahasiswa::all();
+        return view('mahasiswa.index', ['mahasiswas' => $mahasiswas]);
     }
 
     public function create()
