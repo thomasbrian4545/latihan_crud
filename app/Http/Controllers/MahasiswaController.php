@@ -16,7 +16,7 @@ class MahasiswaController extends Controller
 
     public function create()
     {
-        return view('form-pendaftaran');
+        return view('mahasiswa.create');
     }
 
     public function store(Request $request)
