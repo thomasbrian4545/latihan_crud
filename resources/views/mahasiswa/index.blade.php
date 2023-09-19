@@ -26,7 +26,9 @@
                         @forelse ($mahasiswas as $mahasiswa)
                             <tr>
                                 <th>{{ $loop->iteration }}</th>
-                                <td>{{ $mahasiswa->nim }}</td>
+                                <td><a
+                                        href="{{ route('mahasiswas.show', ['mahasiswa' => $mahasiswa->id]) }}">{{ $mahasiswa->nim }}</a>
+                                </td>
                                 <td>{{ $mahasiswa->nama }}</td>
                                 <td>{{ $mahasiswa->jenis_kelamin == 'P' ? 'Perempuan' : 'Laki-laki' }}</td>
                                 <td>{{ $mahasiswa->jurusan }}</td>
