@@ -34,4 +34,9 @@ class MahasiswaController extends Controller
         Mahasiswa::create($validateData);
         return "Data berhasil diinput ke database";
     }
+
+    public function show($mahasiswa)
+    {
+        dd($mahasiswa);
+    }
 }
