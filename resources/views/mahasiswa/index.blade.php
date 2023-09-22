@@ -14,11 +14,16 @@
                         Tambah Mahasiswa
                     </a>
                 </div>
+                @if (session()->has('pesan'))
+                    <div class="alert alert-success">
+                        {{ session()->get('pesan') }}
+                    </div>
+                @endif
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nim</th>
+                            <th>NIM</th>
                             <th>Nama</th>
                             <th>Jenis Kelamin</th>
                             <th>Jurusan</th>
@@ -29,8 +34,8 @@
                         @forelse ($mahasiswas as $mahasiswa)
                             <tr>
                                 <th>{{ $loop->iteration }}</th>
-                                <td><a
-                                        href="{{ route('mahasiswas.show', ['mahasiswa' => $mahasiswa->id]) }}">{{ $mahasiswa->nim }}</a>
+                                <td><a {{-- href="{{ route('mahasiswas.show', ['mahasiswa' => $mahasiswa->id]) }}">{{ $mahasiswa->nim }}</a> --}}
+                                        href="{{ url('/mahasiswas/' . $mahasiswa->id) }}">{{ $mahasiswa->nim }}</a>
                                 </td>
                                 <td>{{ $mahasiswa->nama }}</td>
                                 <td>{{ $mahasiswa->jenis_kelamin == 'P' ? 'Perempuan' : 'Laki-laki' }}</td>

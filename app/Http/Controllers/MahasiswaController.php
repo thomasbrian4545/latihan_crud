@@ -32,7 +32,10 @@ class MahasiswaController extends Controller
         );
         // dump($validateData);
         Mahasiswa::create($validateData);
-        return "Data berhasil diinput ke database";
+        // return "Data berhasil diinput ke database";
+        // return redirect('/mahasiswas');
+        // $request->session()->flash('pesan',"Penambahan data {$validateData['nama']} berhasil");
+        return redirect()->route('mahasiswas.index')->with('pesan', "Penambahan data {$validateData['nama']} berhasil");
     }
 
     // public function show($mahasiswa)
@@ -42,7 +45,8 @@ class MahasiswaController extends Controller
     //     return view('mahasiswa.show', ['mahasiswa' => $result]);
     // }
 
-    public function show(Mahasiswa $mahasiswa){
+    public function show(Mahasiswa $mahasiswa)
+    {
         return view('mahasiswa.show', ['mahasiswa' => $mahasiswa]);
     }
 }
