@@ -19,3 +19,8 @@ Route::get('/mahasiswas/create', [MahasiswaController::class, 'create'])->name('
 Route::post('/mahasiswas', [MahasiswaController::class, 'store'])->name('mahasiswas.store');
 
 Route::get('/mahasiswas/{mahasiswa}', [MahasiswaController::class, 'show'])->name('mahasiswas.show');
+
+Route::get('/mahasiswas/{mahasiswa}/edit', [MahasiswaController::class, 'edit'])->name('mahasiswas.edit');
+Route::put('/mahasiswas/{mahasiswa}', [MahasiswaController::class, 'update'])->name('mahasiswas.update');
+
+Route::delete('/mahasiswa/{mahasiswa}', [MahasiswaController::class, 'destroy'])->name('mahasiswas.destroy');

@@ -49,4 +49,24 @@ class MahasiswaController extends Controller
     {
         return view('mahasiswa.show', ['mahasiswa' => $mahasiswa]);
     }
+
+    public function edit(Mahasiswa $mahasiswa)
+    {
+        return view('mahasiswa.edit', ['mahasiswa' => $mahasiswa]);
+    }
+
+    public function update(Request $request, Mahasiswa $mahasiswa)
+    {
+        $validateData = $request->validate([
+            'nim' => 'required|size:8|unique:mahasiswas,nim,' . $mahasiswa->id,
+            'nama' => 'required|min:3|max:50',
+            'jenis_kelamin' => 'required|in:P,L',
+            'jurusan' => 'required',
+            'alamat' => '',
+        ]);
+        //Mahasiswa::where('id', $mahasiswa->id)->update($validateData);
+        $mahasiswa->update($validateData);
+        return redirect()->route('mahasiswas.show', ['mahasiswa' => $mahasiswa->id])
+            ->with('pesan', "Update data {$validateData['nama']} berhasil");
+    }
 }

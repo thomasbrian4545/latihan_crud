@@ -8,10 +8,17 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
-                <div class="pt-3">
-                    <h1 class="h2">Biodata {{ $mahasiswa->nama }}</h1>
+                <div class="pt-3 d-flex justify-content-between align-items-center">
+                    <h2>Biodata {{ $mahasiswa->nama }}</h2>
+                    <a href="{{ route('mahasiswas.edit', ['mahasiswa' => $mahasiswa->id]) }}"
+                        class="btn btn-primary">Edit</a>
                 </div>
                 <hr>
+                @if (session()->has('pesan'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session()->get('pesan') }}
+                    </div>
+                @endif
                 <ul>
                     <li>NIM: {{ $mahasiswa->nim }} </li>
                     <li>Nama: {{ $mahasiswa->nama }} </li>
