@@ -69,4 +69,11 @@ class MahasiswaController extends Controller
         return redirect()->route('mahasiswas.show', ['mahasiswa' => $mahasiswa->id])
             ->with('pesan', "Update data {$validateData['nama']} berhasil");
     }
+
+    public function destroy(Mahasiswa $mahasiswa)
+    {
+        $mahasiswa->delete();
+        return redirect()->route('mahasiswas.index')
+            ->with('pesan', "Hapus data $mahasiswa->nama berhasil");
+    }
 }
